@@ -1,0 +1,22 @@
+<mat-card class="container">
+  <h1>Sign Up</h1>
+
+  <form [formGroup]="form" (submit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password">
+    </mat-form-field>
+  
+    <button type="submit" mat-raised-button color="primary">Sign Up</button>
+  </form>
+</mat-card>
