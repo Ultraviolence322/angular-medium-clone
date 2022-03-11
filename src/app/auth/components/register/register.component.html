@@ -1,22 +1,30 @@
 <mat-card class="container">
   <h1>Sign Up</h1>
-
   <form [formGroup]="form" (submit)="onSubmit()" class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Username</mat-label>
       <input matInput formControlName="username">
+      <mat-error *ngIf="form.controls['username'].errors">
+        {{form.controls['username'].errors['error']}}
+      </mat-error>
     </mat-form-field>
   
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email">
+      <mat-error *ngIf="form.controls['email'].errors">
+        {{form.controls['email'].errors['error']}}
+      </mat-error>
     </mat-form-field>
     
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Password</mat-label>
       <input type="password" matInput formControlName="password">
+      <mat-error *ngIf="form.controls['password'].errors">
+        {{form.controls['password'].errors['error']}}
+      </mat-error>
     </mat-form-field>
   
-    <button type="submit" mat-raised-button color="primary">Sign Up</button>
+    <button [disabled]="isSubmitting" type="submit" mat-raised-button color="primary">Sign Up</button>
   </form>
 </mat-card>

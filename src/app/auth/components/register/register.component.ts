@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { select, Store } from '@ngrx/store';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
+
+import { RegisterRequestInterface } from 'src/app/shared/types/registerRequest.interface';
+import { registerAction } from '../../store/actions';
+import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors';
 
 @Component({
   selector: 'app-register',
@@ -7,23 +14,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: FormGroup = {} as FormGroup
-  constructor(private fb: FormBuilder) { }
-
+  form!: FormGroup
+  isSubmitting!: boolean
+  
+  constructor(private fb: FormBuilder, private store: Store) { }
+  
   ngOnInit(): void {
     this.initializeForm()
+    this.initializeValues()
+
+    this.store.pipe(select(validationErrorsSelector)).subscribe(validationErrors => {
+      if(validationErrors) {
+        Object.keys(validationErrors).map(key => {
+          this.form.controls[key].setErrors({error: validationErrors[key].join(';\n')})
+        })
+
+        console.log('this.form', this.form);
+      }
+    })
   }
 
+  
+  initializeValues(): void {
+    this.store.pipe(select(isSubmittingSelector)).subscribe(e => this.isSubmitting = e)
+  }
+  
   initializeForm(): void {
-    console.log('a');
     this.form = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      username: [''],
+      email: [''],
+      password: [''],
     })
   }
 
   onSubmit(): void {
-    console.log('form', this.form);
+    const data: RegisterRequestInterface = {
+      user: {
+        ...this.form.value
+      }
+    }
+    
+    this.store.dispatch(registerAction({request: data}))
   }
 }
