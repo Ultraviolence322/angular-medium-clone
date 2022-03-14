@@ -1,14 +1,6 @@
 <mat-card class="container">
-  <h1>Sign Up</h1>
-  <form [formGroup]="form" (submit)="onSubmit()" class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Username</mat-label>
-      <input matInput formControlName="username">
-      <mat-error *ngIf="form.controls['username'].errors">
-        {{form.controls['username'].errors['error']}}
-      </mat-error>
-    </mat-form-field>
-  
+  <h1>Log In</h1>
+  <form [formGroup]="form" (submit)="onSubmit()" class="example-form">  
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email">
@@ -24,9 +16,12 @@
         {{form.controls['password'].errors['error']}}
       </mat-error>
     </mat-form-field>
+    <mat-error class="mb-20" *ngIf="form.errors">
+      {{form.errors['error']}}
+    </mat-error>
 
     <div class="mb-20">
-      <a routerLink="/login">To login page</a>
+      <a routerLink="/register">To register page</a>
     </div>
   
     <button [disabled]="isSubmitting" type="submit" mat-raised-button color="primary">Sign Up</button>

@@ -5,10 +5,11 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, tap } from "rxjs";
 import { CurrentUserInterface } from "src/app/shared/types/currentUser.interface";
 import { AuthService } from "../../services/auth.service";
+import { loginAction, loginFailureAction, loginSuccessAction } from "../actions/login.action";
 import { registerAction, registerFailureAction, registerSuccessAction } from "../actions/register.action";
 
 @Injectable()
-export class RegisterEffect {
+export class LoginEffect {
   constructor(
     private actions$: Actions, 
     private authService: AuthService,
@@ -17,14 +18,14 @@ export class RegisterEffect {
 
   }
 
-  register$ = createEffect(() => {
+  login$ = createEffect(() => {
     return this.actions$
     .pipe(
-      ofType(registerAction),
-      mergeMap(({request}) => this.authService.register(request)
+      ofType(loginAction),
+      mergeMap(({request}) => this.authService.login(request)
         .pipe(
-          map((currentUser: CurrentUserInterface) => registerSuccessAction({user: currentUser})),
-          catchError((errorResponse: HttpErrorResponse) => of(registerFailureAction({errors: errorResponse.error.errors})))
+          map((currentUser: CurrentUserInterface) => loginSuccessAction({user: currentUser})),
+          catchError((errorResponse: HttpErrorResponse) => of(loginFailureAction({errors: errorResponse.error.errors})))
         )
       )
     )
@@ -33,7 +34,7 @@ export class RegisterEffect {
   redirectAfterSubmit$ = createEffect(
     () => this.actions$
       .pipe(
-        ofType(registerSuccessAction),
+        ofType(loginSuccessAction),
         tap(() => {
           this.router.navigateByUrl('/')
         })

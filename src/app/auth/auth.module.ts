@@ -7,23 +7,30 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { RegisterComponent } from './components/register/register.component';
 import { authReducer } from './store/reducer';
 import { AuthService } from './services/auth.service';
-import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './store/effects/register.effect';
+import { LoginComponent } from './components/login/login.component';
+import { LoginEffect } from './store/effects/login.effect';
 
 const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +41,7 @@ const routes: Routes = [
     MatFormFieldModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect])
+    EffectsModule.forFeature([RegisterEffect, LoginEffect])
   ],
   providers: [AuthService]
 })
