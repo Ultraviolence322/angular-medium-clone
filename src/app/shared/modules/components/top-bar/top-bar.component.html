@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <span>My Application</span>
+  <ul>
+    <li>
+      <a routerLink="/">
+        <button mat-raised-button>Home</button>
+      </a>
+    </li>
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <li>
+        <a routerLink="/article/new">
+          <button mat-raised-button>New Post</button>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/settings">
+          <button mat-raised-button>Settigns</button>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/profile', (currentUser$ | async)?.username]">
+          <button mat-raised-button>
+            <img [src]="(currentUser$ | async)?.image" alt="img">
+            {{ (currentUser$ | async)?.username }}
+          </button>
+        </a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="!(isLoggedIn$ | async)">
+      <li>
+        <a routerLink="/login">
+          <button mat-raised-button>Sign In</button>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/register">
+          <button mat-raised-button>Sign Up</button>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</mat-toolbar>
