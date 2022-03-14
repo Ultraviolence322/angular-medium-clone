@@ -15,6 +15,7 @@ import { AuthService } from './services/auth.service';
 import { RegisterEffect } from './store/effects/register.effect';
 import { LoginComponent } from './components/login/login.component';
 import { LoginEffect } from './store/effects/login.effect';
+import { GetUserEffect } from './store/effects/getUser.effect';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
     MatFormFieldModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect])
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetUserEffect])
   ],
   providers: [AuthService]
 })
