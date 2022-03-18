@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/services/authInterceptor.service';
-import { TopBarModule } from './shared/modules/topBar.module';
+import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { TopBarModule } from './shared/modules/top-bar/topBar.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TopBarModule } from './shared/modules/topBar.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    GlobalFeedModule,
     TopBarModule,
     BrowserAnimationsModule,
     HttpClientModule,
