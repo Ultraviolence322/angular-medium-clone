@@ -7,7 +7,7 @@ export class LocalStorageApiService {
 
   constructor() { }
 
-  set(key: string, data: any): void {
+  setData(key: string, data: any): void {
     try {
       localStorage.setItem(key, JSON.stringify(data))
     } catch (error) {
@@ -15,7 +15,7 @@ export class LocalStorageApiService {
     }
   }
 
-  get(key: string): any {
+  getData(key: string): any {
     try {
       const data = localStorage.getItem(key)
       return data && JSON.parse(data)
