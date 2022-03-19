@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./global-feed.component.css']
 })
 export class GlobalFeedComponent implements OnInit {
+  apiUrl: string = '/articles'
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
-
 }

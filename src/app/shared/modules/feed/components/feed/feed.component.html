@@ -1,1 +1,29 @@
-<p>feed works!</p>
+<p *ngIf="error$ | async">{{error$ | async}}</p>
+<p *ngIf="isLoading$ | async">{{isLoading$ | async}}</p>
+<div>
+  <ul>
+    <li *ngFor="let article of (feed$ | async)?.articles">
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <img mat-card-sm-image [src]="article.author.image" >
+          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-subtitle>
+            {{article.createdAt}}
+            <br>
+            {{article.author.username}}
+          </mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+          {{article.description}} 
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Favourite</button>
+          <button mat-button>Read more...</button>
+        </mat-card-actions>
+        <mat-card-footer>
+          
+        </mat-card-footer>
+      </mat-card>
+    </li>
+  </ul>
+</div>

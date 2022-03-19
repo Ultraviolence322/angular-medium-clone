@@ -1,5 +1,5 @@
-import { BackendErrorsInterface } from "./backendErrors.interface"
-import { CurrentUserInterface } from "./currentUser.interface"
+import { BackendErrorsInterface } from "../../shared/types/backendErrors.interface"
+import { CurrentUserInterface } from "../../shared/types/currentUser.interface"
 
 export interface AuthStateInterface {
   isLoading: boolean
