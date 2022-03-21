@@ -6,6 +6,7 @@ import { FeedModule } from '../shared/modules/feed/feed.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PopularTagsModule } from '../shared/modules/popular-tags/popular-tags.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FeedModule,
+    PopularTagsModule,
     MatChipsModule,
     MatGridListModule,
     MatTabsModule,
