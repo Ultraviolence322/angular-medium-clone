@@ -20,8 +20,8 @@
           <button mat-button>Favourite</button>
           <button mat-button>Read more...</button>
         </mat-card-actions>
-        <mat-card-footer>
-          
+        <mat-card-footer class="feed__tags">
+          <app-tag-list  [tags]="article.tagList"></app-tag-list>
         </mat-card-footer>
       </mat-card>
     </li>

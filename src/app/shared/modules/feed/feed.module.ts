@@ -8,6 +8,7 @@ import { GetFeedEffect } from './store/effects/getFeed.effect';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { PaginationModule } from '../pagination/pagination.module';
+import { TagListModule } from '../tag-list/tag-list.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PaginationModule } from '../pagination/pagination.module';
   imports: [
     CommonModule,
     PaginationModule,
+    TagListModule,
     MatCardModule,
     MatButtonModule,
     StoreModule.forFeature('feed', feedReducer),
