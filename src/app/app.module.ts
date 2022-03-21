@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/services/authInterceptor.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { TopBarModule } from './shared/modules/top-bar/topBar.module';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TopBarModule } from './shared/modules/top-bar/topBar.module';
     HttpClientModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [
     {

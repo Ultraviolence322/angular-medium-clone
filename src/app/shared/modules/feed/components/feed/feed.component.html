@@ -30,7 +30,7 @@
   <app-pagination
     [currentPage]="page"
     [total]="(feed$ | async)?.articlesCount || 0"
-    [limit]="2"
+    [limit]="limit"
     [url]="baseUrl"
 
   ></app-pagination>
