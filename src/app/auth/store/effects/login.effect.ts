@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, tap } from "rxjs";
-import { LocalStorageApiService } from "src/app/shared/services/local-storage-api.service";
+import { LocalStorageApiService } from "src/app/shared/services/local-sotage-api/local-storage-api.service";
 import { CurrentUserInterface } from "src/app/shared/types/currentUser.interface";
 import { AuthService } from "../../services/auth.service";
 import { loginAction, loginFailureAction, loginSuccessAction } from "../actions/login.action";

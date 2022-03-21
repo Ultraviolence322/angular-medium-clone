@@ -1,0 +1,13 @@
+
+<ul class="pagination">
+  <li *ngFor="let page of pages" class="a" [ngClass]="{ 'pagination-active': currentPage == page }">
+    <a [routerLink]="url" [queryParams]="{page}">
+      <div class="example-button-container">
+        <button mat-mini-fab aria-label="Example icon button with a home icon">
+          {{page}}
+        </button>
+      </div>
+    </a>
+  </li>
+</ul>
+

@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.pagination li {
+  margin-right: 10px;
+}
+
+.pagination-active {
+  filter: brightness(60%);
+
+}
+
+.pagination li:hover {
+  filter: brightness(90%);
+}
+

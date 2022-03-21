@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { LocalStorageApiService } from "src/app/shared/services/local-storage-api.service";
+import { LocalStorageApiService } from "src/app/shared/services/local-sotage-api/local-storage-api.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

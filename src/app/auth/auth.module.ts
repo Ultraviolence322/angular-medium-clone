@@ -16,7 +16,7 @@ import { RegisterEffect } from './store/effects/register.effect';
 import { LoginComponent } from './components/login/login.component';
 import { LoginEffect } from './store/effects/login.effect';
 import { GetUserEffect } from './store/effects/getUser.effect';
-import { LocalStorageApiService } from '../shared/services/local-storage-api.service';
+import { LocalStorageApiService } from '../shared/services/local-sotage-api/local-storage-api.service';
 
 const routes: Routes = [
   {

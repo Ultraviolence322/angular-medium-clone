@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GetFeedEffect } from './store/effects/getFeed.effect';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { PaginationModule } from '../pagination/pagination.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   imports: [
     CommonModule,
+    PaginationModule,
     MatCardModule,
     MatButtonModule,
     StoreModule.forFeature('feed', feedReducer),

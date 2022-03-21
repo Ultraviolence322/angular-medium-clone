@@ -1,6 +1,6 @@
 <p *ngIf="error$ | async">{{error$ | async}}</p>
 <p *ngIf="isLoading$ | async">{{isLoading$ | async}}</p>
-<div>
+<div *ngIf="(feed$ | async)">
   <ul>
     <li *ngFor="let article of (feed$ | async)?.articles">
       <mat-card class="example-card">
@@ -26,4 +26,13 @@
       </mat-card>
     </li>
   </ul>
+
+  <app-pagination
+    [currentPage]="page"
+    [total]="(feed$ | async)?.articlesCount || 0"
+    [limit]="2"
+    [url]="baseUrl"
+
+  ></app-pagination>
 </div>
+
