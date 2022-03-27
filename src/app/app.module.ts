@@ -14,6 +14,7 @@ import { AuthInterceptor } from './auth/services/authInterceptor.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { TopBarModule } from './shared/modules/top-bar/topBar.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { MyFeedModule } from './my-feed/my-feed.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     AppRoutingModule,
     AuthModule,
     GlobalFeedModule,
+    MyFeedModule,
     TopBarModule,
     BrowserAnimationsModule,
     HttpClientModule,
