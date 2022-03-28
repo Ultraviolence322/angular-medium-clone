@@ -15,6 +15,7 @@ import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { TopBarModule } from './shared/modules/top-bar/topBar.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { MyFeedModule } from './my-feed/my-feed.module';
+import { TagFeedModule } from './tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MyFeedModule } from './my-feed/my-feed.module';
     AuthModule,
     GlobalFeedModule,
     MyFeedModule,
+    TagFeedModule,
     TopBarModule,
     BrowserAnimationsModule,
     HttpClientModule,

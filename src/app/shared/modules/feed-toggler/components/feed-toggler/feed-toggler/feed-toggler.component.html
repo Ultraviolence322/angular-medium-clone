@@ -1,5 +1,5 @@
 <mat-button-toggle-group [value]="value" name="fontStyle" aria-label="Font Style">
-    <mat-button-toggle value="feed" *ngIf="isLoggedIn$ | async"><a routerLink="feed">My Feed</a></mat-button-toggle>
+    <mat-button-toggle value="feed" *ngIf="isLoggedIn$ | async"><a routerLink="/feed">My Feed</a></mat-button-toggle>
     <mat-button-toggle value="/"><a routerLink="/">Global Feed</a></mat-button-toggle>
-    <mat-button-toggle value="tag" *ngIf="tagName"><a [routerLink]="['tag', tagName]"># {{tagName}}</a></mat-button-toggle>
+    <mat-button-toggle value="tag" *ngIf="tagName"><a [routerLink]="['/tag', tagName]"># {{tagName}}</a></mat-button-toggle>
 </mat-button-toggle-group>
